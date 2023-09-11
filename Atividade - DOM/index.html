@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+</head>
+    <!-- ------------ Estilização da página -------------- -->
+    <style>
+      
+      /* Definições de estilo para o tema claro */
+      body {
+        background-color: #f2f2f2;
+        color: #333;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+      }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 0 20px;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: monospace;
+    }
+  
+    form {
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 50px auto;
+      padding: 30px;
+      max-width: 600px;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    }
+  
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    input[type="text"], input[type="number"], input[type="radio"] {
+      border-radius: 10px;
+      display: block;
+      font-size: 16px;
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 100%;
+    }
+  
+    input[type="submit"] {
+      border: 0;
+      border-radius: 4px;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px;
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+      font-family: monospace;
+
+    }
+  
+    input[type="submit"]:hover {
+      background-color: #616663;
+    }
+    .select{
+      border-radius: 50px;
+      font-size: 16px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .botao{
+      border-radius: 500px;
+      border-color: #616663;
+      background-color: #616663;
+      font-family: monospace;
+      width: 101px;
+      
+    }
+    .forms input{
+      margin-top: 20px;
+      background-color: #ffff;
+      border-radius: 50px;
+      border-color: #616663;
+    }
+      
+      /* Definições de estilo para o tema escuro */
+      .dark-theme {
+        background-color: #333;
+        color: #f5f5f5;
+      }
+
+    </style>
+
+    
+  </head>
+
+<!-- HTML -->
+  <body>
+    <center>
+    <button class="botao" id="theme-toggle">tema</button>
+    <form class= "forms" id="cadastro-form">
+      <img src="Forms-bro.png">
+      <h1>FORMULÁRIO</h1>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome">
+      <br>
+      <label for="idade">Idade:</label>
+      <input type="number" id="idade" name="idade">
+      <br>
+      <label for="sexo">Sexo:</label>
+      <select class="select" id="sexo" name="sexo">
+        <option value="">Selecione</option>
+        <option value="feminino">Feminino</option>
+        <option value="masculino">Masculino</option>
+        <option value="outro">Outro</option>
+      </select>
+      <br>
+      <input type="submit" value="Cadastrar">
+    </form>
+    </center>
+
+<!-- JavaScript -->
+
+    <script>
+      const themeToggle = document.querySelector('#theme-toggle');
+      const body = document.querySelector('body');
+      const form = document.querySelector('#cadastro-form');
+      const nomeInput = document.querySelector('#nome');
+      const idadeInput = document.querySelector('#idade');
+      const sexoInput = document.querySelector('#sexo');
+      
+      themeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-theme');
+      });
+      form.addEventListener('submit', function() {
+        location.reload();
+        });
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        if (!nomeInput.value || !idadeInput.value || !sexoInput.value) {
+          alert('Por favor, preencha todos os campos.');
+          return;
+        }else{
+          alert('Formulário enviado!');
+        }
+      
+      });
+    </script>
+
+  </body>
+</html>
